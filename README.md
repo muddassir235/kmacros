@@ -21,14 +21,14 @@ dependencies {
 
 ## Functions
 #### Delay
-Delay a block of code my a specified time in milliseconds
+Delay a block of code my a specified time in milliseconds.
 ```kotlin
 delay(1000) {
     // Your block of code
 }
 ```
 #### Safe
-Run a fault tolerant block of code safely, avoiding any exceptions
+Run a fault tolerant block of code safely, avoiding any exceptions.
 ```kotlin
 safe {
     // Your block of code
@@ -36,8 +36,8 @@ safe {
 ```
 
 ## Resources
-#### screenWidth and screenHeight
-The device's width and Height in physical pixels
+#### Screen Width and Screen Height
+The device's width and Height in physical pixels.
 
 ```kotlin
 layoutParams.width = screenWidth
@@ -53,37 +53,42 @@ startActivityNoAnimation<YourActivity>() // starts YourActivity without any anim
 ```
 
 #### Save to SharedPreferences
-Save any boolean, int, long, float, string, or an array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects in SharedPreferences from within a Context.
+Save any boolean, int, long, float, string, or any array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects in SharedPreferences from within a Context. (Throws unsupported type exception in case the object is not serializable.)
 ```kotlin
 save("mykey", true)                             // Boolean
 save("mykey", 1)                                // Int
 save("mykey", 1L)                               // Long
 save("mykey", 1.0f)                             // Float
 save("mykey", "My String")                      // String
-save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are also supported
-save("mykey", anySerializableObject)            // Any serializable object can also be saved.
-save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any serializable object can also be saved.
+save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are supported
+save("mykey", anySerializableObject)            // Any Serializable object can be saved.
+save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any Serializable Object can also be saved.
 ```
 #### Load from SharedPreferences
-Load any saved boolean, int, long, float, string, or an array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context.
+Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string), a Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context. (Throws unsupported type exception in case the object is not serializable.)
 ```kotlin
 load("mykey", Boolean::class)               // Boolean
 load("mykey", Int::class)                   // Int
 load("mykey", Long::class)                  // Long
 load("mykey", Float::class)                 // Float
 load("mykey", String::class)                // String
-load("mykey", Array::class)                 // Arrays of all primitive types are also supported
-load("mykey", MySerializableObject::class)  // Any serializable object can also be saved.
-load("mykey", ArrayList::class)             // An ArrayList of any serializable object can also be saved.
+load("mykey", Array::class)                 // Arrays of all primitive types are supported
+load("mykey", MySerializableObject::class)  // Any Serializable object can be load.
+load("mykey", ArrayList::class)             // An ArrayList of any Serializable Object can also be loaded.
 ```
-
+#### Safe Save and Load
+Safe versions of the above save and load functions which avoid/ignore any exceptions.
+```kotlin
+safeSave("mykey", myObject) // Does nothing if it fails
+safeLoad("mykey", MyObject::class) // Returns null in case any exception occurs
+```
 #### Create Intent
 Create an intent of an Activity from within a context.
 ```kotlin
 val intent = createIntent<YourActivity>() // Intent of YourActivity.
 ```
 #### Broadcast Action
-Broadcast an action from within a context which can received by a BroadcastReceiver (Optional bundle of extras can be provided which will be received in an intent by the BroadcastReceiver)
+Broadcast an action from within a context which can be received by a BroadcastReceiver (Optional bundle of extras can be provided which will be received in the form of an intent by the BroadcastReceiver.)
 ```kotlin
 broadcastAction("stop_download")
 broadcastAction("stop_download", bundleOfExtras) // Optinal bundle of extras 
@@ -99,9 +104,16 @@ Check whether a service is running or not from within a context.
 !isServiceRunning(MyService::class.java) { // returns true or false
 ```
 #### Prefs
-Get an instant handle to the default SharedPreference from within a context.
+Get an instant handle to the default SharedPreferences from within a context.
 ```kotlin
 this.prefs
+```
+## View
+#### Mutable Width and Height
+You don't have to get a reference to the layoutParams, adjust the width and height and reassign layout params, mutableWidth and mutableHeight will handle that for you.
+```kotlin
+myView.mutableWidth = 160.0f.px
+myView.mutableHeight = 90.0f.px
 ```
 
 ## Primitives
@@ -118,13 +130,13 @@ layoutParams.height = 100.dp
 ```
 
 #### Long to Time String
-Long number timestamp  to string (Support upto Hours of granularity) HH:MM:SS
+Long number timestamp to time string (Supports upto Hours of granularity) HH:MM:SS
 ```kotlin
 textview.text = 60000L.time // 01:00
 ```
 
 #### Integer to Arabic Number String
-Convert kotlin Integer to arabic number String
+Convert a Kotlin Integer to an arabic number String.
 ```kotlin
 val arabic123 = 123.arabicNumber // ١٢٣
 ```
@@ -136,4 +148,9 @@ val base64Str = objectToString(serializableObject)
 val originalObject = stringToObject(base64Str)
 ```
 
-## 
+## Dialog
+#### Set Nav Bar Color
+Set the navigation bar color for when a dialog get displayed (Useful for top to bottom dialogs, BottomSheet Dialogs)
+```kotlin
+mydialog.setNavigationBarColor(Color.WHITE)
+```
