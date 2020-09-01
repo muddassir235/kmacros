@@ -34,6 +34,76 @@ safe {
     // Your block of code
 }
 ```
+
+## Resources
+#### screenWidth and screenHeight
+The device's width and Height in physical pixels
+
+```kotlin
+layoutParams.width = screenWidth
+layoutParams.height = screenHeight
+```
+
+## Context
+#### Start Activity
+Convenient way of starting an activity from within a context.
+```kotlin
+startActivity<YourActivity>() // starts YourActivity
+startActivityNoAnimation<YourActivity>() // starts YourActivity without any animations.
+```
+
+#### Save to SharedPreferences
+Save any boolean, int, long, float, string, or an array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects in SharedPreferences from within a Context.
+```kotlin
+save("mykey", true)                             // Boolean
+save("mykey", 1)                                // Int
+save("mykey", 1L)                               // Long
+save("mykey", 1.0f)                             // Float
+save("mykey", "My String")                      // String
+save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are also supported
+save("mykey", anySerializableObject)            // Any serializable object can also be saved.
+save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any serializable object can also be saved.
+```
+#### Load from SharedPreferences
+Load any saved boolean, int, long, float, string, or an array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context.
+```kotlin
+load("mykey", Boolean::class)               // Boolean
+load("mykey", Int::class)                   // Int
+load("mykey", Long::class)                  // Long
+load("mykey", Float::class)                 // Float
+load("mykey", String::class)                // String
+load("mykey", Array::class)                 // Arrays of all primitive types are also supported
+load("mykey", MySerializableObject::class)  // Any serializable object can also be saved.
+load("mykey", ArrayList::class)             // An ArrayList of any serializable object can also be saved.
+```
+
+#### Create Intent
+Create an intent of an Activity from within a context.
+```kotlin
+val intent = createIntent<YourActivity>() // Intent of YourActivity.
+```
+#### Broadcast Action
+Broadcast an action from within a context which can received by a BroadcastReceiver (Optional bundle of extras can be provided which will be received in an intent by the BroadcastReceiver)
+```kotlin
+broadcastAction("stop_download")
+broadcastAction("stop_download", bundleOfExtras) // Optinal bundle of extras 
+```
+#### Pending Intent With Action
+Create a pending intent with the specified action from within a context.
+```kotlin
+pendingIntentWithAction("stop_audio")
+```
+#### Is Service Running
+Check whether a service is running or not from within a context.
+```kotlin
+!isServiceRunning(MyService::class.java) { // returns true or false
+```
+#### Prefs
+Get an instant handle to the default SharedPreference from within a context.
+```kotlin
+this.prefs
+```
+
 ## Primitives
 #### Display Pixels (dp) to Pixels (px)
 Convert android display pixels to actual physical screen pixels
@@ -59,9 +129,11 @@ Convert kotlin Integer to arabic number String
 val arabic123 = 123.arabicNumber // ١٢٣
 ```
 
-#### Serializable Object To Base64 Encoded String ()
-Convert a Kotlin Serializable Object to a Base64 encode string and vice-versa. This can be useful in certain situations (e.g. Saving objects to SharedPreferences if required, Sending data over the network e.t.c)
+#### Serializable Object To Base64 Encoded String
+Convert a Kotlin Serializable Object to a Base64 encoded string and vice-versa. This can be useful in certain situations (e.g. Saving objects to SharedPreferences if required, Sending data over the network e.t.c)
 ```kotlin
 val base64Str = objectToString(serializableObject)
 val originalObject = stringToObject(base64Str)
 ```
+
+## 
