@@ -36,26 +36,31 @@ safe {
 ```
 ## Primitives
 #### Display Pixels (dp) to Pixels (px)
+Convert android display pixels to actual physical screen pixels
 ```kotlin
 layoutParams.height = 20.0f.px
 ```
 
 #### Pixels (px) to Display Pixels (dp)
+Convert physical screen pixels to android display pixels
 ```kotlin
 layoutParams.height = 100.dp
 ```
 
 #### Long to Time String
+Long number timestamp  to string (Support upto Hours of granularity) HH:MM:SS
 ```kotlin
 textview.text = 60000L.time // 01:00
 ```
 
 #### Integer to Arabic Number String
+Convert kotlin Integer to arabic number String
 ```kotlin
 val arabic123 = 123.arabicNumber // ١٢٣
 ```
 
-#### Serializable Object To Base64 Encoded String (Can be saved to Shared Preferences if required)
+#### Serializable Object To Base64 Encoded String ()
+Convert a Kotlin Serializable Object to a Base64 encode string and vice-versa. This can be useful in certain situations (e.g. Saving objects to SharedPreferences if required, Sending data over the network e.t.c)
 ```kotlin
 val base64Str = objectToString(serializableObject)
 val originalObject = stringToObject(base64Str)
