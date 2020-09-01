@@ -17,6 +17,6 @@ fun safe(action: ((Unit) -> Unit)) {
  * @param millis: Delay in millis
  * @param task: The lambda to run
  */
-internal fun delay(millis: Long, task: ((Unit) -> Unit)) {
+fun delay(millis: Long, task: ((Unit) -> Unit)) {
     Handler().postDelayed({ task.invoke(Unit) }, millis)
 }
