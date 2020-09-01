@@ -1,7 +1,7 @@
 # kmacros
 [![Release](https://jitpack.io/v/muddassir235/kmacros.svg?style=flat-square)](https://jitpack.io/#muddassir235/kmacros/)
 
-Useful Kotlin functions/methods and extensions for Android which help you develop quicker.
+Useful Kotlin functions/methods and extensions for Android which help you develop quicker. More methods and extensions coming soon. Add this library to your project to avoid writing boilerplate code and focus on what you want to develop.
 
 ## Add Dependencies
 Add the following in your project level build.gradle
