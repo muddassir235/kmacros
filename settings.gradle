@@ -1,0 +1,3 @@
+include ':kmacros'
+include ':app'
+rootProject.name = "kmacros"
