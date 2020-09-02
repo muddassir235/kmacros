@@ -80,7 +80,7 @@ load<Int>("mykey")
 load<Long>("mykey")
 load<Float>("mykey")
 load<String>("mykey")
-load<Array<Boolean>>("mykey")                  // Arrays of all primitive types are supported
+load<Array<String>>("mykey")                   // Arrays of all primitive types are supported
 .
 .
 .
