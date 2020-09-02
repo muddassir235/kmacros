@@ -52,6 +52,7 @@ startActivity<YourActivity>() // starts YourActivity
 startActivityNoAnimation<YourActivity>() // starts YourActivity without any animations.
 ```
 #### Show a Toast
+Show a toast from within a context for a short of a long duration.
 ```kotlin
 toast("Hello World!")
 toastLong("Hello World!!!!!!")
