@@ -91,7 +91,7 @@ load<ArrayList<MySerializableObject>>("mykey") // An ArrayList of any Serializab
 Safe versions of the above save and load functions which avoid/ignore any exceptions.
 ```kotlin
 safeSave("mykey", myObject) // Does nothing if it fails
-safeLoad("mykey", MyObject::class) // Returns null in case any exception occurs
+safeLoad<MyObject>("mykey") // Returns null in case any exception occurs
 ```
 #### Create Intent
 Create an intent of an Activity from within a context.
