@@ -84,7 +84,7 @@ load<Array<Boolean>>("mykey")                  // Arrays of all primitive types 
 .
 .
 .
-load<MySerializableObject>("mykey")            // Any Serializable object can be load.
+load<MySerializableObject>("mykey")            // Any Serializable object can be loaded.
 load<ArrayList<MySerializableObject>>("mykey") // An ArrayList of any Serializable Object can also be loaded.
 ```
 #### Safe Save and Load
