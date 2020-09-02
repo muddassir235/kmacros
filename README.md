@@ -66,7 +66,9 @@ save("mykey", 1L)                               // Long
 save("mykey", 1.0f)                             // Float
 save("mykey", "My String")                      // String
 save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are supported
-...
+.
+.
+.
 save("mykey", anySerializableObject)            // Any Serializable object can be saved.
 save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any Serializable Object can also be saved.
 ```
@@ -79,6 +81,9 @@ load<Long>("mykey")
 load<Float>("mykey")
 load<String>("mykey")
 load<Array<Boolean>>("mykey")                  // Arrays of all primitive types are supported
+.
+.
+.
 load<MySerializableObject>("mykey")            // Any Serializable object can be load.
 load<ArrayList<MySerializableObject>>("mykey") // An ArrayList of any Serializable Object can also be loaded.
 ```
