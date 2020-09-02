@@ -7,7 +7,7 @@ import android.os.Handler
  *
  * @param action The action to perform safely.
  */
-fun safe(action: ((Unit) -> Unit)) {
+inline fun safe(action: ((Unit) -> Unit)) {
     try { action.invoke(Unit) } catch (e: Exception) { /* don't care */ }
 }
 
@@ -17,6 +17,6 @@ fun safe(action: ((Unit) -> Unit)) {
  * @param millis: Delay in millis
  * @param task: The lambda to run
  */
-fun delay(millis: Long, task: ((Unit) -> Unit)) {
+inline fun delay(millis: Long, crossinline task: ((Unit) -> Unit)) {
     Handler().postDelayed({ task.invoke(Unit) }, millis)
 }

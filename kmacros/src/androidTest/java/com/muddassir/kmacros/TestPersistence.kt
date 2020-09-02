@@ -22,38 +22,38 @@ class TestPersistence {
     @Test
     fun testSaveLoadBool() {
         context.save("test_bool", true)
-        assertTrue(context.load("test_bool", Boolean::class)?:false)
+        assertTrue(context.load("test_bool")?:false)
     }
 
     @Test
     fun testSaveLoadInt() {
         context.save("test_int", 7)
-        assertEquals(7,context.load("test_int", Int::class)?:0)
+        assertEquals(7,context.load<Int>("test_int")?:0)
     }
 
     @Test
     fun testSaveLoadLong() {
         context.save("test_long", 77777777L)
-        assertEquals(77777777L,context.load("test_long", Long::class)?:0L)
+        assertEquals(77777777L,context.load("test_long")?:0L)
     }
 
     @Test
     fun testSaveLoadFloat() {
         context.save("test_float", 7.7f)
-        assertEquals(7.7f,context.load("test_float", Float::class)?:0.0f)
+        assertEquals(7.7f,context.load<Float>("test_float")?:0.0f)
     }
 
     @Test
     fun testSaveLoadString() {
         context.save("test_string", "test")
-        assertEquals("test",context.load("test_string", String::class)?:"")
+        assertEquals("test",context.load<String>("test_string")?:"")
     }
 
     @Test
     fun testSaveLoadBooleanArray() {
         val expected = arrayOf(true, true, false)
         context.save("test_bool_array", expected)
-        val found = context.load("test_bool_array", Array<Boolean>::class) ?: emptyArray()
+        val found = context.load<Array<Boolean>>("test_bool_array") ?: emptyArray()
 
         assertNotEquals(0, found.size)
         found.forEachIndexed { index, b ->
@@ -65,7 +65,7 @@ class TestPersistence {
     fun testSaveLoadIntArray() {
         val expected = arrayOf(1, 2, 3)
         context.save("test_int_array", expected)
-        val found = context.load("test_int_array", Array<Int>::class) ?: emptyArray()
+        val found = context.load<Array<Int>>("test_int_array") ?: emptyArray()
 
         assertNotEquals(0, found.size)
         found.forEachIndexed { index, i ->
@@ -77,7 +77,7 @@ class TestPersistence {
     fun testSaveLoadLongArray() {
         val expected = arrayOf(1L, 2L, 3L)
         context.save("test_long_array", expected)
-        val found = context.load("test_long_array", Array<Long>::class) ?: emptyArray()
+        val found = context.load<Array<Long>>("test_long_array") ?: emptyArray()
 
         assertNotEquals(0, found.size)
         found.forEachIndexed { index, l ->
@@ -89,7 +89,7 @@ class TestPersistence {
     fun testSaveLoadFloatArray() {
         val expected = arrayOf(1.0f, 2.0f, 3.0f)
         context.save("test_float_array", expected)
-        val found = context.load("test_float_array", Array<Float>::class) ?: emptyArray()
+        val found = context.load<Array<Float>>("test_float_array") ?: emptyArray()
 
         assertNotEquals(0, found.size)
         found.forEachIndexed { index, f ->
@@ -101,7 +101,7 @@ class TestPersistence {
     fun testSaveLoadStringArray() {
         val expected = arrayOf("ready", "set", "go")
         context.save("test_string_array", expected)
-        val found = context.load("test_string_array", Array<String>::class) ?: emptyArray()
+        val found = context.load<Array<String>>("test_string_array") ?: emptyArray()
 
         assertNotEquals(0, found.size)
         found.forEachIndexed { index, s ->
@@ -124,7 +124,7 @@ class TestPersistence {
             arrayOf("Test1", "Test2", "Test3")
         )
         context.save("test_object", expected)
-        val found = context.load("test_object", TestObject::class) ?: TestObject()
+        val found = context.load("test_object") ?: TestObject()
 
         assertEquals(expected, found)
     }
@@ -163,7 +163,7 @@ class TestPersistence {
         )
 
         context.save("test_object_array", expected)
-        val found = context.load("test_object_array", ArrayList::class)
+        val found = context.load<ArrayList<TestObject>>("test_object_array")
 
         found?.toTypedArray()?.forEachIndexed { index, testObject ->
             assertEquals(expected[index], testObject)
@@ -199,7 +199,7 @@ class TestPersistence {
             )
         )
         context.save("test_object_array", expected)
-        val found = context.load("test_object_array", ArrayList::class)
+        val found = context.load<ArrayList<TestObject>>("test_object_array")
 
         found?.toTypedArray()?.forEachIndexed { index, testObject ->
             assertEquals(expected[index], testObject)
@@ -208,20 +208,20 @@ class TestPersistence {
 
     @Test
     fun testLoadNonExistentObject() {
-        assertNull(context.load("nonexistent_key", Boolean::class))
-        assertNull(context.load("nonexistent_key", Int::class))
-        assertNull(context.load("nonexistent_key", Long::class))
-        assertNull(context.load("nonexistent_key", Float::class))
-        assertNull(context.load("nonexistent_key", String::class))
-        assertNull(context.load("nonexistent_key", Array<Boolean>::class))
-        assertNull(context.load("nonexistent_key", Array<Int>::class))
-        assertNull(context.load("nonexistent_key", Array<Long>::class))
-        assertNull(context.load("nonexistent_key", Array<Float>::class))
-        assertNull(context.load("nonexistent_key", Array<String>::class))
-        assertNull(context.load("nonexistent_key", Serializable::class))
-        assertNull(context.load("nonexistent_key", TestObject::class))
-        assertNull(context.load("nonexistent_key", Array<TestObject>::class))
-        assertNull(context.load("nonexistent_key", ArrayList::class))
+        assertNull(context.load<Boolean>("nonexistent_key"))
+        assertNull(context.load<Int>("nonexistent_key"))
+        assertNull(context.load<Long>("nonexistent_key"))
+        assertNull(context.load<Float>("nonexistent_key"))
+        assertNull(context.load<String>("nonexistent_key"))
+        assertNull(context.load<Array<Boolean>>("nonexistent_key"))
+        assertNull(context.load<Array<Int>>("nonexistent_key"))
+        assertNull(context.load<Array<Long>>("nonexistent_key"))
+        assertNull(context.load<Array<Float>>("nonexistent_key"))
+        assertNull(context.load<Array<String>>("nonexistent_key"))
+        assertNull(context.load<Serializable>("nonexistent_key"))
+        assertNull(context.load<TestObject>("nonexistent_key"))
+        assertNull(context.load<Array<TestObject>>("nonexistent_key"))
+        assertNull(context.load<ArrayList<TestObject>>("nonexistent_key"))
     }
 
     @Test(expected = Exception::class)

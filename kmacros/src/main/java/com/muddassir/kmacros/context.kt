@@ -8,7 +8,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
-import kotlin.reflect.KClass
+import java.io.Serializable
 
 /**
  * toast - Show a short toast with the specified text.
@@ -143,8 +143,8 @@ fun Context.safeSave(key: String, value: Any) {
  * @param key The key of the object to load
  * @param type The type of the object that is being loaded.
  */
-fun <T: Any> Context.load(key: String, type: KClass<T>): T? {
-    return prefs.load(key, type)
+inline fun <reified T: Serializable> Context.load(key: String): T? {
+    return prefs.load(key)
 }
 
 /**
@@ -153,6 +153,6 @@ fun <T: Any> Context.load(key: String, type: KClass<T>): T? {
  * @param key The key of the object to load
  * @param type The type of the object that is being loaded.
  */
-fun <T: Any> Context.safeLoad(key: String, type: KClass<T>): T? {
-    return prefs.safeLoad(key, type)
+inline fun <reified T: Serializable> Context.safeLoad(key: String): T? {
+    return prefs.safeLoad(key)
 }

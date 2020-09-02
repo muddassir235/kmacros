@@ -21,14 +21,10 @@ fun SharedPreferences.safeSave(key: String, value: Any) {
  *                              (avoids exceptions)
  *
  * @param key The key of the object to load
- * @param type The type of the object that is being loaded.
+ * @template T Serializable type
  */
-fun <T: Any> SharedPreferences.safeLoad(key: String, type: KClass<T>): T? {
-    return try {
-        load(key, type)
-    } catch (e: Exception) {
-        null
-    }
+inline fun <reified T: Serializable> SharedPreferences.safeLoad(key: String): T? {
+    return safeLoad(key, T::class)
 }
 
 /**
@@ -59,8 +55,20 @@ fun SharedPreferences.save(key: String, value: Any) {
  * SharedPreferences.load - Load any serializable object in SharedPreferences
  *
  * @param key The key of the object to load
- * @param type The type of the object that is being loaded.
+ * @template T Serializable type
  */
+inline fun <reified T: Serializable> SharedPreferences.load(key: String): T? {
+    return load(key, T::class)
+}
+
+fun <T: Any> SharedPreferences.safeLoad(key: String, type: KClass<T>): T? {
+    return try {
+        load(key, type)
+    } catch (e: Exception) {
+        null
+    }
+}
+
 fun <T: Any> SharedPreferences.load(key: String, type: KClass<T>): T? {
     if(!contains(key)) return null
 
