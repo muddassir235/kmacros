@@ -51,7 +51,11 @@ Convenient way of starting an activity from within a context.
 startActivity<YourActivity>() // starts YourActivity
 startActivityNoAnimation<YourActivity>() // starts YourActivity without any animations.
 ```
-
+#### Show a Toast
+```kotlin
+toast("Hello World!")
+toastLong("Hello World!!!!!!")
+```
 #### Save to SharedPreferences
 Save any boolean, int, long, float, string, or any array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects in SharedPreferences from within a Context. (Throws unsupported type exception in case the object is not serializable.)
 ```kotlin
