@@ -106,7 +106,7 @@ pendingIntentWithAction("stop_audio")
 #### Is Service Running
 Check whether a service is running or not from within a context.
 ```kotlin
-!isServiceRunning(MyService::class.java) { // returns true or false
+isServiceRunning(MyService::class.java) // returns true or false
 ```
 #### Prefs
 Get an instant handle to the default SharedPreferences from within a context.
