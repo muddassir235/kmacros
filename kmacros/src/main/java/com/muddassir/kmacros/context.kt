@@ -5,10 +5,8 @@ import android.app.ActivityManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
-import java.io.Serializable
 
 /**
  * toast - Show a short toast with the specified text.
@@ -109,50 +107,4 @@ fun Context.isServiceRunning(serviceClass: Class<*>): Boolean {
         }
     }
     return false
-}
-
-/**
- * Get a reference to the default SharedPreferences
- */
-val Context.prefs: SharedPreferences get() = this.getSharedPreferences(
-    "preferences", Context.MODE_PRIVATE)
-
-/**
- * Context.save - Save any serializable object in SharedPreferences
- *
- * @param key The key of the object to save
- * @param value the value of the object to save
- */
-fun Context.save(key: String, value: Any) {
-    prefs.save(key, value)
-}
-
-/**
- * Context.safeSave - Save any serializable object in SharedPreferences safely (avoids exceptions)
- *
- * @param key The key of the object to save
- * @param value the value of the object to save
- */
-fun Context.safeSave(key: String, value: Any) {
-    prefs.safeSave(key, value)
-}
-
-/**
- * Context.load - Load any serializable object in SharedPreferences
- *
- * @param key The key of the object to load
- * @param type The type of the object that is being loaded.
- */
-inline fun <reified T: Serializable> Context.load(key: String): T? {
-    return prefs.load(key)
-}
-
-/**
- * Context.safeLoad - Load any serializable object in SharedPreferences safely (avoids exceptions)
- *
- * @param key The key of the object to load
- * @param type The type of the object that is being loaded.
- */
-inline fun <reified T: Serializable> Context.safeLoad(key: String): T? {
-    return prefs.safeLoad(key)
 }
