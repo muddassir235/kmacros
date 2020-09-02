@@ -7,7 +7,26 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Toast
 import kotlin.reflect.KClass
+
+/**
+ * toast - Show a short toast with the specified text.
+ *
+ * @param text The text to show
+ */
+fun Context.toast(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+}
+
+/**
+ * toast - Show a long toast with the specified text.
+ *
+ * @param text The text to show
+ */
+fun Context.toastLong(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+}
 
 /**
  * createIntent - Creates an intent for the specified activity <T>.

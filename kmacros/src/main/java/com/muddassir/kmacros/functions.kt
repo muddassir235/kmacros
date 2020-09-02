@@ -3,7 +3,7 @@ package com.muddassir.kmacros
 import android.os.Handler
 
 /**
- * safe - The action to perform.
+ * safe - Run a block of code safely. Avoiding any exceptions.
  *
  * @param action The action to perform safely.
  */
