@@ -66,6 +66,7 @@ save("mykey", 1L)                               // Long
 save("mykey", 1.0f)                             // Float
 save("mykey", "My String")                      // String
 save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are supported
+...
 save("mykey", anySerializableObject)            // Any Serializable object can be saved.
 save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any Serializable Object can also be saved.
 ```
