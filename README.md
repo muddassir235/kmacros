@@ -77,7 +77,7 @@ load<Int>("mykey")
 load<Long>("mykey")
 load<Float>("mykey")
 load<String>("mykey")
-load<Array<Boolrean>>("mykey")                 // Arrays of all primitive types are supported
+load<Array<Boolean>>("mykey")                  // Arrays of all primitive types are supported
 load<MySerializableObject>("mykey")            // Any Serializable object can be load.
 load<ArrayList<MySerializableObject>>("mykey") // An ArrayList of any Serializable Object can also be loaded.
 ```
