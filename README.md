@@ -72,14 +72,14 @@ save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any Serializa
 #### Load from SharedPreferences
 Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string), a Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context. (Throws unsupported type exception in case the object is not serializable.)
 ```kotlin
-load("mykey", Boolean::class)               // Boolean
-load("mykey", Int::class)                   // Int
-load("mykey", Long::class)                  // Long
-load("mykey", Float::class)                 // Float
-load("mykey", String::class)                // String
-load("mykey", Array::class)                 // Arrays of all primitive types are supported
-load("mykey", MySerializableObject::class)  // Any Serializable object can be load.
-load("mykey", ArrayList::class)             // An ArrayList of any Serializable Object can also be loaded.
+load<Boolean>("mykey")
+load<Int>("mykey")
+load<Long>("mykey")
+load<Float>("mykey")
+load<String>("mykey")
+load<Array<Boolrean>>("mykey")                 // Arrays of all primitive types are supported
+load<MySerializableObject>("mykey")            // Any Serializable object can be load.
+load<ArrayList<MySerializableObject>>("mykey") // An ArrayList of any Serializable Object can also be loaded.
 ```
 #### Safe Save and Load
 Safe versions of the above save and load functions which avoid/ignore any exceptions.
