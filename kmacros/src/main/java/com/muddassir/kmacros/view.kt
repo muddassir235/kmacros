@@ -1,6 +1,8 @@
 package com.muddassir.kmacros
 
 import android.view.View
+import android.widget.TextView
+import kotlin.math.*
 
 /**
  * Mutable height for views.
@@ -32,4 +34,35 @@ var View.mutableWidth: Int
         val layoutParams = this.layoutParams
         layoutParams.width = value
         this.layoutParams = layoutParams
+    }
+
+
+/**
+ * Set the minimum width of a TextView easily.
+ *
+ * @get - get the current minimum width of the TextView.
+ * @set - sets the given minimum width of the TextView.
+ */
+var TextView.minW: Int
+    get() {
+        return max(this.minimumWidth, this.minWidth)
+    }
+    set(value) {
+        this.minimumHeight = value
+        this.minHeight = value
+    }
+
+/**
+ * Set the minimum height of a TextView easily.
+ *
+ * @get - get the current minimum height of the TextView.
+ * @set - sets the given minimum height of the TextView.
+ */
+var TextView.minH: Int
+    get() {
+        return max(this.minimumHeight, this.minHeight)
+    }
+    set(value) {
+        this.minimumHeight = value
+        this.minHeight = value
     }
