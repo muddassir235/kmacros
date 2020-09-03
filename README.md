@@ -126,6 +126,12 @@ You don't have to get a reference to the layoutParams, adjust the width and heig
 myView.mutableWidth = 160.0f.px
 myView.mutableHeight = 90.0f.px
 ```
+#### Minimum Width and Minimum Height
+ You don't have to set both `minimumWidth` and `minWidth` for acheiving your desired behaviour (Textview and its decendants (Button e.t.c) require both of these to be set in order to apply a minimum height to the view which leads to ugly code), simply use `minW`
+```kotlin
+myTextView.minW = 16.0.px
+myTextView.minH = 9.0.px
+```
 
 ## Primitives
 #### Display Pixels (dp) to Pixels (px)
