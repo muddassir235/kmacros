@@ -171,3 +171,6 @@ Set the navigation bar color for when a dialog get displayed (Useful for top to 
 ```kotlin
 mydialog.setNavigationBarColor(Color.WHITE)
 ```
+
+## Uses:
+* https://github.com/muddassir235/eprefs
