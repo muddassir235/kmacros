@@ -200,14 +200,6 @@ mydialog.setNavigationBarColor(Color.WHITE)
 
 ## Muddassir Ahmed Links:
 
-LinkedIn:
-
 * https://www.linkedin.com/in/muddassir35/
-
-Medium
-
 * https://muddassirahmed.medium.com/
-
-* StackOverflow:
-
-https://stackoverflow.com/users/5841416/muddassir-ahmed
+* https://stackoverflow.com/users/5841416/muddassir-ahmed
