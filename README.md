@@ -195,5 +195,5 @@ mydialog.setNavigationBarColor(Color.WHITE)
 
 ## Apps by Muddassir Ahmed:
 
-https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android
-https://play.google.com/store/apps/details?id=com.app.kitaabattawheed
+* https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android
+* https://play.google.com/store/apps/details?id=com.app.kitaabattawheed
