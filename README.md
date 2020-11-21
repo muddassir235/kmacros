@@ -193,7 +193,7 @@ mydialog.setNavigationBarColor(Color.WHITE)
 ## Uses:
 * https://github.com/muddassir235/eprefs
 
-## Apps by Muddassir Ahmed (https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android):
+## [Apps by Muddassir Ahmed](https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android):
 
 * https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android
 * https://play.google.com/store/apps/details?id=com.app.kitaabattawheed
