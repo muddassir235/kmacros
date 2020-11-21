@@ -3,6 +3,8 @@
 
 Useful Kotlin functions/methods and extensions for Android which help you develop quicker. Add this library to your project to avoid writing boilerplate code and focus on what you want to develop. More methods and extensions coming soon.
 
+Used in https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android
+
 ## Add Dependencies
 Add the following in your project level build.gradle
 ```groovy
@@ -190,3 +192,8 @@ mydialog.setNavigationBarColor(Color.WHITE)
 
 ## Uses:
 * https://github.com/muddassir235/eprefs
+
+Apps by me:
+
+https://play.google.com/store/apps/details?id=com.muddassirkhan.quran_android
+https://play.google.com/store/apps/details?id=com.app.kitaabattawheed
