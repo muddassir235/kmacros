@@ -60,49 +60,49 @@ toast("Hello World!")
 toastLong("Hello World!!!!!!")
 ```
 #### Save to SharedPreferences
-Save any boolean, int, long, float, string, or any array of (boolean, int, long, float, string), any Serializable Object, or an ArrayList of any Serializable Objects in SharedPreferences from within a Context. (Throws unsupported type exception in case the object is not serializable.)
+Save any boolean, int, long, float, string, or any array of (boolean, int, long, float, string) or any data object in SharedPreferences from within a Context.
 ```kotlin
 save("mykey", true)                             // Boolean
 save("mykey", 1)                                // Int
 save("mykey", 1L)                               // Long
 save("mykey", 1.0f)                             // Float
 save("mykey", "My String")                      // String
-save("mykey", arrayOf("my", "strings"))         // Arrays of all primitive types are supported
+save("mykey", anyDataObject)                    // Data Object
+save("mykey", arrayOf(true, false))         // Arrays of all primitive types are supported
 .
 .
 .
-save("mykey", anySerializableObject)            // Any Serializable object can be saved.
-save("mykey", arrayListOfAnySerializableObject) // An ArrayList of any Serializable Object can also be saved.
+save("mykey", Array<AnyDataObject>)            // Any data object array can be saved.
 ```
 #### Load from SharedPreferences
-Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string), a Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context. (Throws unsupported type exception in case the object is not serializable.)
+Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string) or any data object from SharedPreferences within a Context.
 ```kotlin
 val value = load<Boolean>("mykey")
 val value = load<Int>("mykey")
 val value = load<Long>("mykey")
 val value = load<Float>("mykey")
 val value = load<String>("mykey")
+val value = load<MyDataObject>("mykey")
 val value = load<Array<String>>("mykey")                   
 .
 .
 .
-val value = load<MySerializableObject>("mykey")            
-val value = load<ArrayList<MySerializableObject>>("mykey")
+val value = load<Array<MyDataObject>>("mykey")
 ```
 #### Delete from SharedPreferences
-Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string), a Serializable Object, or an ArrayList of any Serializable Objects from SharedPreferences within a Context. (Throws unsupported type exception in case the object is not serializable.)
+Load any saved boolean, int, long, float, string, or array of (boolean, int, long, float, string), any data object from SharedPreferences within a Context.
 ```kotlin
 delete<Boolean>("mykey")
 delete<Int>("mykey")
 delete<Long>("mykey")
 delete<Float>("mykey")
 delete<String>("mykey")
+delete<MyDataObject>("mykey")
 delete<Array<String>>("mykey")                  
 .
 .
 .
-delete<MySerializableObject>("mykey")           
-delete<ArrayList<MySerializableObject>>("mykey")
+delete<Array<MyDataObject>>("mykey")
 ```
 #### Safe Save, Load and Delete
 Safe versions of the above save and load functions which avoid/ignore any exceptions.
@@ -174,13 +174,6 @@ textview.text = 60000L.time // 01:00
 Convert a Kotlin Integer to an arabic number String.
 ```kotlin
 val arabic123 = 123.arabicNumber // ١٢٣
-```
-
-#### Serializable Object To Base64 Encoded String
-Convert a Kotlin Serializable Object to a Base64 encoded string and vice-versa. This can be useful in certain situations (e.g. Saving objects to SharedPreferences if required, Sending data over the network e.t.c)
-```kotlin
-val base64Str = objectToString(serializableObject)
-val originalObject = stringToObject(base64Str)
 ```
 
 ## Dialog
