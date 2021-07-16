@@ -111,6 +111,13 @@ safeSave("mykey", myObject) // Does nothing if it fails
 safeLoad<MyObject>("mykey") // Returns null in case any exception occurs
 safeDelete<MyObject>("mykey") // Does nothing if it fails
 ```
+#### Data Object To Json Encoded String
+Convert a Kotlin Data Object to a Json encoded string and vice-versa. This can be useful in certain situations (e.g. Saving objects to SharedPreferences if required, Sending data over the network e.t.c)
+```kotlin
+val jsonString = objectToString(dataObject)
+val originalObject = stringToObject(jsonString)
+```
+
 #### Create Intent
 Create an intent of an Activity from within a context.
 ```kotlin
