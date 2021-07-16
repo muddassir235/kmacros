@@ -17,7 +17,7 @@ allprojects {
 and the following in your app level build.gradle
 ```groovy
 dependencies {
-    implementation 'com.github.muddassir235:kmacros:1.10'
+    implementation 'com.github.muddassir235:kmacros:1.12'
 }
 ```
 
